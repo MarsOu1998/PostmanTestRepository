@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "044cb21c-d13a-45e1-a41f-39fde5e2e7a9",
+		"name": "Test",
+		"description": "这是一个测试Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testDemo1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"data\",responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://osle.top/foodGoAPI/loginWithPassword?account={{username}}&password={{password}}",
+					"protocol": "https",
+					"host": [
+						"osle",
+						"top"
+					],
+					"path": [
+						"foodGoAPI",
+						"loginWithPassword"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				},
+				"description": "测试API demo1"
+			},
+			"response": []
+		},
+		{
+			"name": "testDemo2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.environment.get(\"data\");\r",
+							"tests[\"两个接口返回数据一致\"] =  responseBody == data;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://osle.top/foodGoAPI/loginWithPassword?account=1&password=1",
+					"protocol": "https",
+					"host": [
+						"osle",
+						"top"
+					],
+					"path": [
+						"foodGoAPI",
+						"loginWithPassword"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "1"
+						},
+						{
+							"key": "password",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
